@@ -1,0 +1,447 @@
+```{r}
+library(brickr)
+library(jpeg)
+library(tidyverse)
+library(dplyr)
+```
+
+```{r}
+#photo <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/Photo1.jpg")
+```
+
+
+```{r}
+demo_img = tempfile() 
+download.file("http://ryantimpe.com/files/mf_unicorn.PNG", demo_img, mode="wb")
+
+mosaic <- png::readPNG(demo_img) %>% 
+  image_to_mosaic()
+
+mosaic %>% build_mosaic()
+```
+
+```{r}
+library(png)
+#writePNG(photo, "/Volumes/My Passport for Mac/R/lego photo/photo.png")
+```
+
+```{r}
+mosaic <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo.png") %>% 
+  image_to_mosaic()
+
+mosaic %>% build_mosaic()
+```
+
+```{r}
+#photo2 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/Photo2.jpg")
+#writePNG(photo2, "/Volumes/My Passport for Mac/R/lego photo/photo2.png")
+```
+
+```{r}
+mosaic2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo2.png") %>% 
+  image_to_mosaic()
+
+mosaic2 %>% build_mosaic()
+```
+
+```{r}
+mosaic2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo2.png") %>% 
+  image_to_mosaic(60, 
+                  brightness = 1.05,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic2 %>% build_mosaic()
+```
+
+```{r}
+mosaic2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo2.png") %>% 
+  image_to_mosaic(60, 
+                  color_palette = "bw", 
+                  brightness = 1.05,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic2 %>% build_mosaic()
+```
+
+```{r}
+mosaic2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo2.png") %>% 
+  image_to_mosaic(60, 
+                  brightness = 1.05,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1")) %>% bricks_from_mosaic()
+
+mosaic2 %>% build_bricks(rgl_lit = F, outline_bricks = T)
+```
+
+```{r}
+
+#Instructions
+p <- mosaic2 %>% 
+  build_instructions(num_steps = 10)
+
+p +
+  ggplot2::theme(panel.grid = element_blank())
+
+ggplot2::ggsave("lego_instructions.png", device="png", width = 6, height = 6)
+
+#Bricks
+mosaic2 %>% 
+  build_pieces()
+
+ggplot2::ggsave("lego_pieces.png", device="png", width = 8, height = 4)
+```
+
+```{r}
+#photo3 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/Photo3.jpg")
+#writePNG(photo3, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo3.png")
+```
+
+```{r}
+mosaic3 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo3.png") %>% 
+  image_to_mosaic()
+
+mosaic3 %>% build_mosaic()
+```
+
+```{r}
+mosaic3 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo3.png") %>% 
+  image_to_mosaic(60, 
+                  brightness = 1.05,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic3 %>% build_mosaic()
+```
+
+```{r}
+#photo4 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/Photo4.jpg")
+#writePNG(photo4, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo4.png")
+```
+
+```{r}
+mosaic4 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo4.png") %>% 
+  image_to_mosaic()
+
+mosaic4 %>% build_mosaic()
+```
+
+```{r}
+mosaic4 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo4.png") %>% 
+  image_to_mosaic(60, 
+                  brightness = 1.05)
+
+mosaic4 %>% build_mosaic()
+```
+
+
+
+```{r}
+#photo5 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/Photo5.jpg")
+#writePNG(photo5, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo5.png")
+```
+
+```{r}
+mosaic5 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo5.png") %>% 
+  image_to_mosaic()
+
+mosaic5 %>% build_mosaic()
+```
+
+```{r}
+#photo6 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/Photo6.jpg")
+#writePNG(photo6, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo6.png")
+```
+
+```{r}
+mosaic6 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo6.png") %>% 
+  image_to_mosaic()
+
+mosaic6 %>% build_mosaic()
+```
+
+```{r}
+mosaic6 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo6.png") %>% 
+  image_to_mosaic(60, 
+                  color_palette = "bw", 
+                  brightness = 1.2,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic6 %>% build_mosaic()
+```
+
+```{r}
+mosaic6_2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo6-removebg-preview.png") %>% 
+  image_to_mosaic()
+
+mosaic6_2 %>% build_mosaic()
+```
+
+```{r}
+mosaic6_2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo6-removebg-preview.png") %>% 
+  image_to_mosaic(color_palette = "bw")
+
+mosaic6_2 %>% build_mosaic()
+```
+
+```{r}
+#photo7 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/Photo7.jpg")
+#writePNG(photo7, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo7.png")
+```
+
+```{r}
+mosaic7 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo7.png") %>% 
+  image_to_mosaic()
+
+mosaic7 %>% build_mosaic()
+```
+
+```{r}
+mosaic7 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo7.png") %>% 
+  image_to_mosaic(60, 
+                  brightness = 1.05,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic7 %>% build_mosaic()
+```
+
+```{r}
+mosaic7 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo7.png") %>% 
+  image_to_mosaic(60, 
+                  color_palette = "bw", 
+                  brightness = 1.05,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic7 %>% build_mosaic()
+```
+
+```{r}
+mosaic7_2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo7-removebg-preview.png") %>% 
+  image_to_mosaic(60, 
+                  color_palette = "bw", 
+                  brightness = 1.05,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic7_2 %>% build_mosaic()
+```
+
+```{r}
+#photo8 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/Photo8.jpg")
+#writePNG(photo8, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo8.png")
+```
+
+```{r}
+mosaic8 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo8.png") %>% 
+  image_to_mosaic()
+
+mosaic8 %>% build_mosaic()
+```
+
+```{r}
+mosaic8 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo8.png") %>% 
+  image_to_mosaic(60, 
+                  brightness = 1.05,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic8 %>% build_mosaic()
+```
+
+```{r}
+mosaic8 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo8.png") %>% 
+  image_to_mosaic(60, 
+                  color_palette = "bw", 
+                  brightness = 1.1,
+                  contrast = 1.2,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic8 %>% build_mosaic()
+```
+
+```{r}
+mosaic8_2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo8-removebg-preview.png") %>% 
+  image_to_mosaic()
+
+mosaic8_2 %>% build_mosaic()
+```
+
+```{r}
+mosaic8_2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo8-removebg-preview.png") %>% 
+  image_to_mosaic(color_palette = "bw")
+
+mosaic8_2 %>% build_mosaic()
+```
+
+```{r}
+mosaic8_2 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo8-removebg-preview.png") %>% 
+  image_to_mosaic() %>% bricks_from_mosaic()
+
+mosaic8_2 %>% build_bricks()
+```
+
+```{r}
+
+#Instructions
+p <- mosaic8_2 %>% 
+  build_instructions(num_steps = 10)
+
+p +
+  ggplot2::theme(panel.grid = element_blank())
+
+ggplot2::ggsave("lego_instructions2.png", device="png", width = 6, height = 6)
+
+#Bricks
+mosaic8_2 %>% 
+  build_pieces()
+
+ggplot2::ggsave("lego_pieces2.png", device="png", width = 8, height = 4)
+```
+
+```{r}
+#photo9 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/Photo9.jpg")
+#writePNG(photo9, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo9.png")
+```
+
+```{r}
+mosaic9 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/photo9.png") %>% 
+  image_to_mosaic()
+
+mosaic9 %>% build_mosaic()
+```
+
+
+```{r}
+#photo10 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/xmen.jpeg")
+#writePNG(photo10, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/xmen.png")
+```
+
+```{r}
+mosaic10 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/xmen.png") %>% 
+  image_to_mosaic(use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic10 %>% build_mosaic()
+```
+
+```{r}
+mosaic10 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/xmen.png") %>% 
+  image_to_mosaic(contrast = 1.1,
+                  use_bricks = c("4x6", "2x4", "1x2", "1x1")) %>% bricks_from_mosaic()
+
+mosaic10 %>% build_bricks()
+```
+
+
+```{r}
+mosaic10 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/xmen.png") %>% 
+  image_to_mosaic(color_palette = "bw")
+
+mosaic10 %>% build_mosaic()
+```
+
+
+```{r}
+#photo11 <- jpeg::readJPEG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/xmen2.jpg")
+#writePNG(photo11, "/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/xmen2.png")
+```
+
+```{r}
+mosaic11 <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/xmen2.png") %>% 
+  image_to_mosaic(use_bricks = c("4x6", "2x4", "1x2", "1x1"))
+
+mosaic11 %>% build_mosaic()
+```
+
+```{r}
+ironman <- png::readPNG("/Volumes/My Passport for Mac/R/lego photo/US 12 Apr/input photo/ironman.png") %>% 
+  image_to_mosaic(brightness = 1.1,
+                  contrast = 1.1,
+    use_bricks = c("4x6", "2x4", "1x2", "1x1")) %>% bricks_from_mosaic()
+
+ironman %>% build_bricks()
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
