@@ -1,6 +1,6 @@
 # Home-deco
 
-This repository is committed to use the package "brickr" to create 3D lego photo
+This repository is committed to use the R to create visualised work for my home decoration
 
 ![](photo/city.png)
 
