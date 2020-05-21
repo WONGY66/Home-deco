@@ -2,6 +2,7 @@
 
 This repository is committed to use R and python to create visualised works for my home decoration
 Using mathart and neural art
+![](photo/bw_lisboa_map.png)
 
 ![](photo/tokyo_wave%20copy.jpg)
 
